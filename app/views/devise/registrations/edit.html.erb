@@ -16,6 +16,14 @@
     <%= f.label :bio %><br />
     <%= f.text_field :bio, autocomplete: "bio" %>
   </div>
+
+   <div class="field">
+    <strong>Upload profile pic</strong><br>
+    <%= f.file_field :avatar %>
+  </div>
+
+
+
     <div class="field">
     <%= f.label :location %><br />
     <%= f.text_field :location, autocomplete: "location" %>

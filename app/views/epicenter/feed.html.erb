@@ -1,10 +1,16 @@
 <h1>@<%= current_user.username %>'s Twitter feed</h1>
 
+
+
 <p>here is what your friends are saying...</p>
 
-<% @following_tweets.each do |tweet| %>
+<% @following_tweets.sort { |x,y| y <=> x }.each do |tweet| %>
 
-	<p>@<%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %></p>
+	<p>@<%= link_to tweet.user.username, show_user_path(id: tweet.user.id) %>
+		&bull; 
+		<%= time_ago_in_words(tweet.created_at)  if Time.now - tweet.created_at < 86400 %>
+		<%= tweet.created_at.strftime('%b%e')  if Time.now - tweet.created_at > 86400 %>
+	</p>
 	<p><%= tweet.message.html_safe%></p>
 
 <% end %>

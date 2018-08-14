@@ -5,6 +5,6 @@
 	<%= tweet.user.name  %> <%= "@#{tweet.user.username}" %>
 	&bull; <%= time_ago_in_words(tweet.created_at) %>
 
-	<%= tweet.message.html_safe %>
+	<%= tweet.message.html_safe %> <br>
 
 <% end %> 
